@@ -105,7 +105,7 @@ function App() {
         <h1 id="year">2023</h1>
       </header>
       <div className="container">
-        <div id="stats">
+        <div className="stats">
           <h4>{data[0].category}</h4>
           <p>Inscritos: {data.length}</p>
           {ridersList()}
