@@ -12,6 +12,7 @@ body {
 
 header {
   width: 100%;
+  height: 3%;
   position: sticky;
   top: 0;
   display: flex;
@@ -47,11 +48,9 @@ select {
   height: 100%;
   margin: auto;
   box-sizing: content-box;
-  height: 100%;
   border-color: red;
 
   flex-shrink: 0; /* Evita que las columnas se reduzcan */
-  width: 300px; /* Ancho fijo para cada columna */
   overflow-y: auto; /* Habilita el desplazamiento vertical */
 }
 
