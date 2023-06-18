@@ -1,0 +1,65 @@
+body {
+  background-color: rgb(236, 236, 229);
+}
+
+#root {
+  /* width: 100%; */
+  height: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: content-box;
+}
+
+header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+select {
+  background-color: rgb(236, 236, 229);
+  padding: 0.3rem;
+  margin: 0.3rem;
+  text-align: center;
+}
+
+.container {
+  height: 100%;
+  margin: auto;
+  /* border: 1px solid blue; */
+  color: black;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas al 50% de ancho cada una */
+  gap: 20px; /* Espacio entre las columnas */
+  overflow-x: auto; /* Habilita el desplazamiento horizontal */
+}
+
+.stats {
+  height: 100%;
+  border-color: blue;
+}
+
+.gfx {
+  height: 100%;
+  margin: auto;
+  box-sizing: content-box;
+  height: 100%;
+  border-color: red;
+
+  flex-shrink: 0; /* Evita que las columnas se reduzcan */
+  width: 300px; /* Ancho fijo para cada columna */
+  overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
+h1 {
+  text-align: right;
+  margin: 0;
+}
+
+.listname {
+  font-size: small;
+}
