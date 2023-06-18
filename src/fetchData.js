@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { read, utils } from 'xlsx';
-import { mockObject } from './mockObject';
 import { getCategoryURL } from './constants';
 
 export const fetchData = async (setData, setLoading, setError) => {
@@ -60,7 +59,7 @@ export const fetchCurrentData = async ({
         console.error('Error al hacer la solicitud:', error);
       });
 
-    console.log(rawData);
+    // console.log(rawData);
     // TODO: this is for current, tengo que hacer para los excel? o quizas con la api
     const participants = rawData.data
       .filter((rider) => rider.paid === 1)

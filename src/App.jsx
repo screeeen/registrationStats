@@ -21,9 +21,9 @@ const CURRENT_YEAR = true;
 set_cptable(cptable);
 
 //TODO: hacer adaptador para ambos modos current y no current?
-// window.addEventListener('beforeunload', function () {
-//   localStorage.clear();
-// });
+window.addEventListener('beforeunload', function () {
+  localStorage.clear();
+});
 
 function App() {
   const [filters, setfilters] = useState({

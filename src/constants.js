@@ -9,19 +9,19 @@ export const CATEGORIES = [
 export const getCategoryURL = (category) => {
   switch (category) {
     case 'STREETMINIMEN':
-      return 'https://api.xn--omarisquio-19a.com/sports/3/registrationForms/27/registrations?';
+      return import.meta.env.VITE_REACT_APP_URL_STREETMINIMEN;
       break;
     case 'STREETMINIWO':
-      return 'https://api.xn--omarisquio-19a.com/sports/3/registrationForms/26/registrations?';
+      return import.meta.env.VITE_REACT_APP_URL_STREETMINIWO;
       break;
     case 'STREETMEN':
-      return 'https://api.xn--omarisquio-19a.com/sports/3/registrationForms/2/registrations?';
+      return import.meta.env.VITE_REACT_APP_URL_STREETMEN;
       break;
     case 'STREETWO':
-      return 'https://api.xn--omarisquio-19a.com/sports/3/registrationForms/24/registrations?';
+      return import.meta.env.VITE_REACT_APP_URL_STREETWO;
       break;
     case 'MINI':
-      return 'https://api.xn--omarisquio-19a.com/sports/3/registrationForms/25/registrations?';
+      return import.meta.env.VITE_REACT_APP_URL_MINI;
       break;
   }
 };
