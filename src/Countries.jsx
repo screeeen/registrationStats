@@ -22,7 +22,7 @@ ChartJS.register(
 export const Countries = ({ data }) => {
   var country = data
     // .filter((rider) => rider.country !== "Spain")
-    .map((rider) => rider.country);
+    .map((rider) => rider.data.country);
 
   const freqMapCountry = country.reduce(
     (map, country) => map.set(country, (map.get(country) || 0) + 1),

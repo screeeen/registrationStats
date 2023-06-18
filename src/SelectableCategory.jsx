@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
+import { CATEGORIES } from './constants';
 
 export const SelectableCategory = ({ data, onValueChange }) => {
   const [currentCatergory, setCurrentCatergory] = useState('STREETMINIMEN');
-  const categories = [
-    'STREETMINIMEN',
-    'STREETMINIWO',
-    'STREETMEN',
-    'STREETWO',
-    'MINI',
-  ];
 
   const handleChange = (event) => {
     setCurrentCatergory(event.target.value);
@@ -16,7 +10,7 @@ export const SelectableCategory = ({ data, onValueChange }) => {
   };
 
   const getCatergories = () =>
-    categories.map((category) => (
+    CATEGORIES.map((category) => (
       <option key={category} value={category}>
         {category}
       </option>

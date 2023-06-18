@@ -1,27 +1,13 @@
-export const CATEGORIES = [
-  'STREETMINIMEN',
-  'STREETMINIWO',
-  'STREETMEN',
-  'STREETWO',
-  'MINI',
-];
+export const STREETMINIMEN = 'WCS Street Men + WCS Miniramp';
+export const STREETMINIWO = 'WCS Street Women + WCS Miniramp';
+export const STREETMEN = 'WCS Street Men';
+export const STREETWO = 'WCS Street Women';
+export const MINI = 'WCS Miniramp';
 
-export const getCategoryURL = (category) => {
-  switch (category) {
-    case 'STREETMINIMEN':
-      return import.meta.env.VITE_REACT_APP_URL_STREETMINIMEN;
-      break;
-    case 'STREETMINIWO':
-      return import.meta.env.VITE_REACT_APP_URL_STREETMINIWO;
-      break;
-    case 'STREETMEN':
-      return import.meta.env.VITE_REACT_APP_URL_STREETMEN;
-      break;
-    case 'STREETWO':
-      return import.meta.env.VITE_REACT_APP_URL_STREETWO;
-      break;
-    case 'MINI':
-      return import.meta.env.VITE_REACT_APP_URL_MINI;
-      break;
-  }
-};
+export const CATEGORIES = [
+  STREETMINIMEN,
+  STREETMINIWO,
+  STREETMEN,
+  STREETWO,
+  MINI,
+];

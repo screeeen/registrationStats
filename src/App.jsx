@@ -7,27 +7,24 @@ import './App.css';
 import { set_cptable } from 'xlsx';
 import * as cptable from 'xlsx/dist/cpexcel.full.mjs';
 import { Countries } from './Countries';
-import {
-  fetchCurrentData,
-  fetchData,
-  getRiders,
-  getRookies,
-  getNewbies,
-} from './fetchData';
+import { fetchCurrentData, getRookies, getNewbies } from './fetchData';
 import { Ages } from './Ages';
 import { Experience } from './Experience';
 import { SelectableCategory } from './SelectableCategory';
-const CURRENT_YEAR = true;
-set_cptable(cptable);
+import {
+  CATEGORIES,
+  STREETMINIMEN,
+  STREETMINIWO,
+  STREETMEN,
+  STREETWO,
+  MINI,
+} from './constants';
 
-//TODO: hacer adaptador para ambos modos current y no current?
-window.addEventListener('beforeunload', function () {
-  localStorage.clear();
-});
+set_cptable(cptable);
 
 function App() {
   const [filters, setfilters] = useState({
-    category: 'STREETMINIMEN',
+    category: STREETMINIMEN,
   });
 
   const [data, setData] = useState(null);
@@ -35,23 +32,12 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const storedDataJSON = localStorage.getItem('apiData');
-
-    if (storedDataJSON) {
-      const storedData = JSON.parse(storedDataJSON);
-      setData(storedData);
-      setLoading(false);
-      return;
-    } else {
-      CURRENT_YEAR
-        ? fetchCurrentData({
-            category: filters.category,
-            setData,
-            setLoading,
-            setError,
-          })
-        : fetchData(setData, setLoading, setError);
-    }
+    fetchCurrentData({
+      category: filters.category,
+      setData,
+      setLoading,
+      setError,
+    });
   }, [filters]);
 
   if (loading) {
@@ -67,7 +53,7 @@ function App() {
       <li
         key={rook.uuid}
         className="listname"
-      >{`${rook.first_name} ${rook.last_name}`}</li>
+      >{`${rook.data.first_name} ${rook.data.last_name}`}</li>
     ));
   };
   const newbieList = () => {
@@ -75,23 +61,20 @@ function App() {
       <li
         key={newbie.uuid}
         className="listname"
-      >{`${newbie.first_name} ${newbie.last_name}`}</li>
+      >{`${newbie.data.first_name} ${newbie.data.last_name}`}</li>
     ));
   };
-
   const ridersList = () => {
     return data.map((rider) => (
       <li
         key={rider.uuid}
         title={JSON.stringify(rider)}
         className="listname"
-      >{`${rider.first_name} ${rider.last_name}`}</li>
+      >{`${rider.data.first_name} ${rider.data.last_name}`}</li>
     ));
   };
 
   const onValueChange = (fieldName, value) => {
-    localStorage.clear();
-
     setfilters((state) => ({
       ...state,
       [fieldName]: value,
@@ -106,7 +89,7 @@ function App() {
       </header>
       <div className="container">
         <div className="stats">
-          <h4>{data[0].category}</h4>
+          <h4>{CATEGORIES.filter((cat) => cat === data[0].category)}</h4>
           <p>Inscritos: {data.length}</p>
           {ridersList()}
           <p>Rookies: {getRookies(data).length}</p>

@@ -10,6 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { getAge } from './fetchData';
 
 ChartJS.register(
   CategoryScale,
@@ -22,7 +23,8 @@ ChartJS.register(
 );
 
 export const Ages = ({ data }) => {
-  var ages = data.map((rider) => rider.years_old);
+  var ages = data.map((rider) => getAge(rider.data.birthdate));
+
   ages.sort((a, b) => a - b);
   const freqMapAges = ages.reduce(
     (map, year) => map.set(year, (map.get(year) || 0) + 1),

@@ -22,7 +22,7 @@ ChartJS.register(
 );
 
 export const Experience = ({ data }) => {
-  var exp = data.map((rider) => rider.years_skating);
+  var exp = data.map((rider) => rider.data.years_skating);
   exp.sort((a, b) => a - b);
   const freqMapExperience = exp.reduce(
     (map, year) => map.set(year, (map.get(year) || 0) + 1),
