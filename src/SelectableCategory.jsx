@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { CATEGORIES } from './constants';
 
 export const SelectableCategory = ({ data, onValueChange }) => {
-  const [currentCatergory, setCurrentCatergory] = useState('STREETMINIMEN');
+  const [currentCatergory, setCurrentCatergory] = useState(CATEGORIES[0]);
 
   const handleChange = (event) => {
     setCurrentCatergory(event.target.value);

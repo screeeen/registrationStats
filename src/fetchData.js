@@ -21,10 +21,11 @@ export const fetchCurrentData = async ({
         console.error('Error al hacer la solicitud:', error);
       });
 
-    console.log(rawData);
-    const categorisedData = rawData.filter(
-      (rider) => rider.category === category,
-    );
+    console.log(category);
+    const categorisedData =
+      category === 'All Riders'
+        ? rawData
+        : rawData.filter((rider) => rider.category === category);
     console.log(categorisedData);
     setData(categorisedData);
     const localData = JSON.stringify(categorisedData);

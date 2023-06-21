@@ -11,20 +11,13 @@ import { fetchCurrentData, getRookies, getNewbies } from './fetchData';
 import { Ages } from './Ages';
 import { Experience } from './Experience';
 import { SelectableCategory } from './SelectableCategory';
-import {
-  CATEGORIES,
-  STREETMINIMEN,
-  STREETMINIWO,
-  STREETMEN,
-  STREETWO,
-  MINI,
-} from './constants';
+import { ALL } from './constants';
 
 set_cptable(cptable);
 
 function App() {
   const [filters, setfilters] = useState({
-    category: STREETMINIMEN,
+    category: ALL,
   });
 
   const [data, setData] = useState(null);
@@ -32,6 +25,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log('** cange');
     fetchCurrentData({
       category: filters.category,
       setData,
@@ -89,7 +83,8 @@ function App() {
       </header>
       <div className="container">
         <div className="stats">
-          <h4>{CATEGORIES.filter((cat) => cat === data[0].category)}</h4>
+          <h4>{filters.category}</h4>
+          {/* <h4>{CATEGORIES.filter((cat) => cat === data[0].category)}</h4> */}
           <p>Inscritos: {data.length}</p>
           {ridersList()}
           <p>Rookies: {getRookies(data).length}</p>
