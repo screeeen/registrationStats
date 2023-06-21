@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from 'react';
-// import dotenv from 'dotenv';
+import { useEffect, useState } from 'react';
 
 import './App.css';
 
-/* load the codepage support library for extended support with older formats  */
-import { set_cptable } from 'xlsx';
-import * as cptable from 'xlsx/dist/cpexcel.full.mjs';
 import { Countries } from './Countries';
 import { fetchCurrentData, getRookies, getNewbies } from './fetchData';
 import { Ages } from './Ages';
@@ -13,7 +9,7 @@ import { Experience } from './Experience';
 import { SelectableCategory } from './SelectableCategory';
 import { ALL } from './constants';
 
-set_cptable(cptable);
+// TODO: store
 
 function App() {
   const [filters, setfilters] = useState({
