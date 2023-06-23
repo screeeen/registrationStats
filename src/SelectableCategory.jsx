@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CATEGORIES } from './constants';
 
-export const SelectableCategory = ({ data, onValueChange }) => {
+export const SelectableCategory = ({ onValueChange }) => {
   const [currentCatergory, setCurrentCatergory] = useState(CATEGORIES[0]);
 
   const handleChange = (event) => {

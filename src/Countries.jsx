@@ -41,7 +41,7 @@ export const Countries = ({ data }) => {
     },
     scales: {
       r: {
-        max: 20,
+        max: Math.max(...yAxisArrCountry),
         min: 0,
         ticks: {
           // stepSize: 0.5,

@@ -8,6 +8,7 @@ body {
   margin: 0 auto;
   padding: 2rem;
   box-sizing: content-box;
+  max-width: 80vw;
 }
 
 header {

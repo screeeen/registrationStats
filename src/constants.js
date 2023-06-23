@@ -3,6 +3,9 @@ export const STREETMINIWO = 'WCS Street Women + WCS Miniramp';
 export const STREETMEN = 'WCS Street Men';
 export const STREETWO = 'WCS Street Women';
 export const MINI = 'WCS Miniramp';
+export const ALLMINI = 'Miniramp Contest';
+export const ALLSTREETMEN = 'Street Men Contest';
+export const ALLSTREETWO = 'Street Women Contest';
 export const ALL = 'All Riders';
 
 export const CATEGORIES = [
@@ -12,4 +15,7 @@ export const CATEGORIES = [
   STREETMEN,
   STREETWO,
   MINI,
+  ALLSTREETMEN,
+  ALLSTREETWO,
+  ALLMINI,
 ];

@@ -10,6 +10,7 @@ import { SelectableCategory } from './SelectableCategory';
 import { ALL } from './constants';
 
 // TODO: store
+// ordenar alfabeti
 
 function App() {
   const [filters, setfilters] = useState({
@@ -74,7 +75,7 @@ function App() {
   return (
     <>
       <header>
-        <SelectableCategory data={data} onValueChange={onValueChange} />
+        <SelectableCategory onValueChange={onValueChange} />
         <h1 id="year">2023</h1>
       </header>
       <div className="container">

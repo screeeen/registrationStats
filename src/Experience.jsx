@@ -42,7 +42,7 @@ export const Experience = ({ data }) => {
     scales: {
       y: {
         beginAtZero: true,
-        max: 20,
+        max: Math.max(...yAxisArrExp),
         stepSize: 5,
         ticks: {
           stepSize: 1,

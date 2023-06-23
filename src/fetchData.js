@@ -1,4 +1,15 @@
 import axios from 'axios';
+import {
+  ALL,
+  MINI,
+  STREETMEN,
+  STREETWO,
+  STREETMINIMEN,
+  STREETMINIWO,
+  ALLSTREETMEN,
+  ALLSTREETWO,
+  ALLMINI,
+} from './constants';
 
 export const fetchCurrentData = async ({
   category,
@@ -22,11 +33,8 @@ export const fetchCurrentData = async ({
       });
 
     console.log(category);
-    const categorisedData =
-      category === 'All Riders'
-        ? rawData
-        : rawData.filter((rider) => rider.category === category);
-    console.log(categorisedData);
+    const categorisedData = getCategorizedData(rawData, category);
+
     setData(categorisedData);
     const localData = JSON.stringify(categorisedData);
     localStorage.setItem('apiData', localData);
@@ -34,6 +42,26 @@ export const fetchCurrentData = async ({
   } catch (error) {
     setError(error);
     setLoading(false);
+  }
+};
+
+const getCategorizedData = (rawData, category) => {
+  console.log(category);
+  switch (category) {
+    case ALL:
+      return rawData;
+    case MINI:
+    case STREETMEN:
+    case STREETWO:
+    case STREETMINIWO:
+    case STREETMINIMEN:
+      return rawData.filter((rider) => rider.category === category);
+    case ALLSTREETMEN:
+      return rawData.filter((rider) => rider.category.includes(STREETMEN));
+    case ALLSTREETWO:
+      return rawData.filter((rider) => rider.category.includes(STREETWO));
+    case ALLMINI:
+      return rawData.filter((rider) => rider.category.includes(MINI));
   }
 };
 

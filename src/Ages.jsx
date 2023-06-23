@@ -44,7 +44,7 @@ export const Ages = ({ data }) => {
     scales: {
       y: {
         beginAtZero: true,
-        max: 5,
+        max: Math.max(...yAxisArrAges),
         stepSize: 5,
         ticks: {
           stepSize: 1,
