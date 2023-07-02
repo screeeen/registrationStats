@@ -8,6 +8,7 @@ import { Ages } from './Ages';
 import { Experience } from './Experience';
 import { SelectableCategory } from './SelectableCategory';
 import { ALL } from './constants';
+import { convertToXLS } from './utils';
 
 // TODO: store
 // ordenar alfabeti
@@ -22,7 +23,6 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log('** cange');
     fetchCurrentData({
       category: filters.category,
       setData,
@@ -41,10 +41,12 @@ function App() {
 
   const rookieList = () => {
     return getRookies(data).map((rook) => (
-      <li
-        key={rook.uuid}
-        className="listname"
-      >{`${rook.data.first_name} ${rook.data.last_name}`}</li>
+      <>
+        <li
+          key={rook.uuid}
+          className="listname"
+        >{`${rook.data.first_name} ${rook.data.last_name}`}</li>
+      </>
     ));
   };
   const newbieList = () => {
@@ -75,8 +77,13 @@ function App() {
   return (
     <>
       <header>
-        <SelectableCategory onValueChange={onValueChange} />
-        <h1 id="year">2023</h1>
+        <SelectableCategory data={data} onValueChange={onValueChange} />
+        <div>
+          <h1 id="year">2023</h1>
+          <button className="btn" onClick={() => convertToXLS(data)}>
+            Dump to xls!
+          </button>
+        </div>
       </header>
       <div className="container">
         <div className="stats">

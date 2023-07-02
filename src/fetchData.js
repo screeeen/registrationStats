@@ -46,7 +46,6 @@ export const fetchCurrentData = async ({
 };
 
 const getCategorizedData = (rawData, category) => {
-  console.log(category);
   switch (category) {
     case ALL:
       return rawData;
