@@ -15,9 +15,9 @@ export const convertToXLS = (data) => {
       skateboarding_classes: item.data.skateboarding_classes,
       sponsors: item.data.sponsors,
       under_18: item.data.under_18,
-      tutor_name: item.data.tutor_name,
-      tutor_lastname: item.data.tutor_lastname,
-      tutor_phone: item.data.tutor_phone,
+      //   tutor_name: item.data.tutor_name,
+      //   tutor_lastname: item.data.tutor_lastname,
+      //   tutor_phone: item.data.tutor_phone,
       email: item.data.email,
     })),
   );
